@@ -25,13 +25,30 @@
     <![endif]-->
     <div class="main">
       <div class="question-wrapper">
-        <h1 class="question">Question</h1>
+        <h1 id="question" class="question">Question</h1>
       </div>
       <div class="choices-wrapper">
-        <span class="choices 1">1. Choice A</span>
-        <span class="choices 2">2. Choice B</span>
-        <span class="choices 3">3. Choice C</span>
-        <span class="choices 4">4. Choice D</span>
+        <input
+          id="1"
+          onClick= `${btnClicked(this.id)}`
+          class="choices"
+          type="button"
+          value="1"
+        ></input>
+        <input
+          id="2"
+          onClick=`${btnClicked(this.id)}`
+          class="choices"
+           type="button"
+            value="2"
+        ></input>
+        <input
+          id="3"
+          onClick=`${btnClicked(this.id)}`
+          class="choices"
+           type="button"
+            value="3"
+        ></input>
       </div>
       <div class="bg-img-box">
         <img class="quiz-bg" src="./images/9 SCENE.svg" alt="quiz-bg" />

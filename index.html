@@ -25,31 +25,35 @@
     <![endif]-->
     <div class="main">
       <div class="question-wrapper">
-        <h1 id="question" class="question">Question</h1>
+        <h1 id="question" class="question">
+          General Knowledge Quiz (10 Questions)
+        </h1>
+        <button id="start" class="startBtn btn">Start</button>
+        <h2 id="score" class="score">Score: 0</h2>
       </div>
-      <div class="choices-wrapper">
-        <input
+      <div id="choice-wrapper" class="choices-wrapper">
+        <button
           id="1"
-          onClick= `${btnClicked(this.id)}`
-          class="choices"
-          type="button"
-          value="1"
-        ></input>
-        <input
+          onClick="`${btnClicked(this.id)}`"
+          class="choices btn"
+        ></button>
+        <button
           id="2"
-          onClick=`${btnClicked(this.id)}`
-          class="choices"
-           type="button"
-            value="2"
-        ></input>
-        <input
+          onClick="`${btnClicked(this.id)}`"
+          class="choices btn"
+        ></button>
+        <button
           id="3"
-          onClick=`${btnClicked(this.id)}`
-          class="choices"
-           type="button"
-            value="3"
-        ></input>
+          onClick="`${btnClicked(this.id)}`"
+          class="choices btn"
+        ></button>
+        <button
+          id="4"
+          onClick="`${btnClicked(this.id)}`"
+          class="choices btn"
+        ></button>
       </div>
+      <button id="newGame" class="startBtn btn">Reset</button>
       <div class="bg-img-box">
         <img class="quiz-bg" src="./images/9 SCENE.svg" alt="quiz-bg" />
         <img class="background-img" src="./images/bg-2.svg" alt="background" />

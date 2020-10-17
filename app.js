@@ -10,7 +10,6 @@ var q1 = new Question(
   3,
   [" Hand", "Chest", "Leg", "shoulder"]
 );
-//console.log(q1);
 
 var q2 = new Question("2. If you have cryophobia, what are you afraid of?", 3, [
   " Crying",
@@ -18,7 +17,6 @@ var q2 = new Question("2. If you have cryophobia, what are you afraid of?", 3, [
   " Ice/cold",
   "Darkness",
 ]);
-//console.log(q2);
 
 var q3 = new Question("3. What’s the chemical symbol for silver?", 1, [
   " Ag",
@@ -26,28 +24,24 @@ var q3 = new Question("3. What’s the chemical symbol for silver?", 1, [
   " Na",
   " Mg",
 ]);
-//console.log(q3);
 
 var q4 = new Question(
   "4. Which popular video game franchise has released games with the subtitles World At War and Black Ops?",
   2,
   ["Battle Front", " Call of Duty", " Medal of Honor", "Wolfenstein"]
 );
-//console.log(q4);
 
 var q5 = new Question(
   "5. Who won the Best Actress Award at the most recent Oscars?",
   3,
   [" Emma Stone", " Cate Blanchett", " Renée Zellweger", "Jeniffer Lawrence"]
 );
-//console.log(q5);
 
 var q6 = new Question(
   "6. Ataulfo, Alphonso and Keitt are varieties of what fruit?",
   1,
   ["Mango", " Apple", "Papaya", "Banana"]
 );
-//console.log(q6);
 
 var q7 = new Question(
   "7. Who is the current manager of Manchester United?",
@@ -59,7 +53,6 @@ var q7 = new Question(
     "José Mourinho",
   ]
 );
-//console.log(q7);
 
 var q8 = new Question("8. What is the capital city of Switzerland?", 3, [
   " Zürich",
@@ -67,14 +60,12 @@ var q8 = new Question("8. What is the capital city of Switzerland?", 3, [
   " Bern",
   "Lausanne",
 ]);
-//console.log(q8);
 
 var q9 = new Question(
   "9. What is the smallest planet in our solar system?",
   2,
   ["Venus", "Mercury", "Earth", "Uranus"]
 );
-//console.log(q9);
 
 var q10 = new Question(
   "10. With what sport would you associate Sachin Tendulkar?",
@@ -98,9 +89,13 @@ function startGame() {
   }
   startBtn.textContent = "Start";
   scoreDOM.style.display = "none";
+  question[questionNum] < 9
+    ? (newGameBtn.style.display = "none")
+    : (newGameBtn.style.display = "block");
 }
 
 startGame();
+
 newGameBtn.addEventListener("click", function () {
   document.getElementById("question").textContent = "Quiz";
   startGame();
@@ -110,8 +105,8 @@ newGameBtn.addEventListener("click", function () {
 //display question
 Question.prototype.displayQuestion = function () {
   document.getElementById("question").textContent = this.question;
-  console.log(this.question);
   scoreDOM.style.display = "block";
+  newGameBtn.style.display = "block";
 
   for (var i = 0; i < this.choices.length; i++) {
     var choiceNum = i + 1;
@@ -119,20 +114,19 @@ Question.prototype.displayQuestion = function () {
     choiceBtns[i].classList.remove("redBtn");
     choiceBtns[i].classList.remove("greenBtn");
     choiceBtns[i].textContent = ` ${choiceNum}. ${this.choices[i]}`;
-    console.log(choiceNum + ": " + this.choices[i]);
   }
 };
 
 //check answer
 function btnClicked(clickedBtn) {
   var userAnswer = parseInt(clickedBtn);
-  console.log(userAnswer);
+
   questions[questionNum].checkAnswer(userAnswer);
 }
 
 Question.prototype.checkAnswer = function (userAnswer) {
-  //check if user answer is correct and display correct answer and user answer using green
-  //for correct and red for wrong answers.
+  //check if user answer is correct and display correct answer and user answer
+
   if (userAnswer !== this.answer) {
     scoreDOM.textContent = `Score: ${score}`;
     document.getElementById(`${userAnswer}`).classList.add("redBtn");
@@ -152,11 +146,11 @@ Question.prototype.checkAnswer = function (userAnswer) {
       score++;
       document.getElementById(`${this.answer}`).classList.add("greenBtn");
     }
+    //display current score on the DOM element
     scoreDOM.textContent = `Score: ${score}`;
   }
 };
 
-//Display next question
 function randomQuestion(questionNum) {
   questions[questionNum].displayQuestion();
 }
@@ -172,14 +166,15 @@ startBtn.addEventListener("click", function () {
 
 function endQuiz() {
   scorePercentage = score * 10;
+
   if (score > 5) {
     document.getElementById(
       "question"
-    ).textContent = `Congratulations! you have ${scorePercentage}%`;
+    ).textContent = `Congratulations! You have ${scorePercentage}%`;
   } else {
     document.getElementById(
       "question"
-    ).textContent = `Give it another shot! You have ${scorePercentage}%`;
+    ).textContent = `Give it another try! You have ${scorePercentage}%`;
   }
   startGame();
 }

@@ -2,7 +2,7 @@
 <p align="center">
   <h3 align="center">General Quiz App</h3>
   <p align="center">
- A meal generator that dynamically generates a random meal with how to prepare description, ingredients list and a preparation video.
+A quiz app that generates questions and validates correct answers and displays congratulations message on user attaining 50%.
     <br /> 
    Live: https://general-quiz-app.vercel.app//
   </p>

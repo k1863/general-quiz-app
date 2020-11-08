@@ -2,7 +2,7 @@
 <p align="center">
   <h3 align="center">General Quiz App</h3>
   <p align="center">
-A quiz app that generates questions and validates correct answers and displays congratulations message on user attaining 50% or more.
+A quiz app built on Vanilla Javascript, HTML and CSS that generates questions and validates correct answers and displays congratulations message on user attaining 50% or more.
     <br /> 
    Live: https://general-quiz-app.vercel.app//
   </p>
